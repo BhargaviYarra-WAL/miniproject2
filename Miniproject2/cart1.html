@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>E-Commerce Site</title>
+    <title>E-Commerce </title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
 </head>
@@ -44,7 +44,7 @@
 </style>
 
 <body>
-    <div class="container" id="mainBody">
+    <div class="container" id="mainbody">
         <h1 class="text-center">My Cart</h1>
     </div>
     <script>
@@ -65,8 +65,7 @@
             location.reload();
         }
         let jsonarr = localStorage.getItem('Products_Cart');
-        let main_body = document.getElementById('mainBody');
-        console.log(jsonarr)
+        let main_body = document.getElementById('mainbody');
         if (jsonarr == null || jsonarr == "[]") {
             let noitems = document.createElement("div");
             noitems.textContent = "No Items ";
