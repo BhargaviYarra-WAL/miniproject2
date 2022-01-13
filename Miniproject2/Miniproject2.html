@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>E-Commerce Application</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <style>
+        body {
+            background: url(bg.jpg)
+        }
+
+        #card {
+            width: 16rem;
+            border: 2px solid black;
+            float: left;
+            border-radius: 5px;
+        }
+
+        img {
+            height: 150px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        article {
+            font-style: oblique;
+            font-weight: bold;
+        }
+
+        @media (max-width:599px) {
+
+            #card {
+                width: 80%;
+            }
+        }
+        svg{
+            margin-left: 1200px;;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center mt-3">Ecommerce  Application</h1>
+    <header class="row top-menu text-center">
+        <div class="col-md-4 col-lg-4 col-sm-6 text-center"><a href="Miniproject2.html">Home</a></div>
+        <div class="col-md-4 col-lg-4 col-sm-6 text-center"><a href="#">Sort by</a></div>
+        <div class="col-md-4 col-lg-4 col-sm-6 text-center"><a href="#">Category</a></div>
+        <a href="cart1.html" role="button"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="60" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg></a>
+    </header>
+    <div class="container-fluid">
+        <article>
+        <div id="card" class="card ml-5 mt-3 ">
+            <img class="card-img-top " src="t1.jpg" alt="card img" id="img1" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name1">Spykar Tshirt</div>
+                <div id="price1" class="text-center">230$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill " id="pbtn1" onclick="addtocart('pbtn1','name1','price1','img1')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+       </article>
+       <article>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="b1.jpg" alt="card img" id="img2" />
+            <div class="card-body">
+                <div class="card-title text-center " id="name2">Louis Philippe Belt</div>
+                <div id="price2" class="text-center">1200$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn2" onclick="addtocart('pbtn2','name2','price2','img2')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+       </article>
+       <article>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="s1.jpg" alt="card img" id="img3" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name3">Nike Shoe</div >
+                <div id="price3" class="text-center">1780$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn3" onclick="addtocart('pbtn3','name3','price3','img3')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        </article>
+        <article>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="h1.jpg" alt="card img" id="img4" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name4">Lino Perros Handbag</div>
+                <div id="price4" class="text-center">760$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn4" onclick="addtocart('pbtn4','name4','price4','img4')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </article>
+    </div>
+    <div class="container-fluid">
+        <article>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top " src="a1.jpg" alt="card img" id="img5" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name5">Mamaearth Alovera</div>
+                <div id="price5" class="text-center">300$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn5" onclick="addtocart5('pbtn5','name5','price5','img5')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+       </article>
+       <article>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="n1.jpg" alt="card img" id="img6"/>
+            <div class="card-body">
+                <div class="card-title text-center " id="name6">Alchemist Novel</div>
+                <div id="price6" class="text-center">249$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn6" onclick="addtocart('pbtn6','name6','price6','img6')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="w1.jpg" alt="card img" id="img7" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name7">Boat Smartwatch</div>
+                <div id="price7" class="text-center">2500$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn7" onclick="addtocart('pbtn7','name7','price7','img7')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="r1.jpg" alt="card img" id="img8" />
+            <div class="card-body">
+                <div class="card-title text-center" id="name8">Redmi 9a Mobile</div>
+                <div id="price8" class="text-center">7890$</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="pbtn8" onclick="addtocart('pbtn8','name8','price8','img8')">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    <script>
+          let arr = [];
+        function addtocart(pbtn, name, price,imgsrc) {
+            let prbtn = document.getElementById(pbtn);
+            let pname = document.getElementById(name);
+            let pprice = document.getElementById(price);
+            let Imgsrc = document.getElementById(imgsrc);
+            if (prbtn.textContent == `Remove from Cart`) {
+                prbtn.textContent = `Add to Cart`;
+                
+                let jsonarr = localStorage.getItem('Products_Cart');
+                let arr1 = JSON.parse(jsonarr);
+                let arr = []
+                for (let i in arr1) {
+                    if (arr1[i].Name == pname.textContent) {
+                        continue;
+                    }
+                    else {
+                        arr.push(arr1[i]);
+                    }
+                }
+                let jsonarr1 = JSON.stringify(arr);
+                localStorage.setItem('Products_Cart', jsonarr1);
+            }
+            else {
+                prbtn.textContent = `Remove from Cart`;
+                
+                let obj = {
+                    Name: pname.textContent,
+                    Price: pprice.textContent,
+                    Image: Imgsrc.src
+                }
+                if(localStorage.getItem('Products_Cart')){
+                    arr=localStorage.getItem('Products_Cart');
+                    arr=JSON.parse(arr);
+                    arr.push(obj);
+                    arr=JSON.stringify(arr);
+                    localStorage.setItem('Products_Cart',arr)
+                }
+                else{
+                    arr.push(obj);
+                    let jsonarr = JSON.stringify(arr);
+                    localStorage.setItem('Products_Cart', jsonarr);
+                }
+                    
+                }
+            }
+    </script>
+
+
+</body>
+
+</html>

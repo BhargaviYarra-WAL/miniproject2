@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>E-Commerce Site</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+</head>
+<style>
+    .container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    body {
+        background: linear-gradient(to right,pink,grey);
+    }
+
+    h1 {
+        color: black;
+        margin-bottom: 2%;
+        font-weight: bold;
+        margin-top: 4px;
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        border: 1px solid black;
+    }
+
+    article {
+        width: 300px;
+    }
+    button {
+        margin-bottom: 3px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    #totalPrice {
+        font-size: 30px;
+        
+    }
+</style>
+
+<body>
+    <div class="container" id="mainBody">
+        <h1 class="text-center">My Cart</h1>
+    </div>
+    <script>
+        function removeItem(name) {
+            let jsarr = localStorage.getItem('Products_Cart');
+            let prarr = JSON.parse(jsarr);
+            let modifiedarray = []
+            for (let i in prarr) {
+                if (prarr[i].Name == name) {
+                    continue;
+                }
+                else {
+                    modifiedarray.push(prarr[i]);
+                }
+            }
+            let Jarr = JSON.stringify(modifiedarray);
+            localStorage.setItem('Products_Cart', Jarr);
+            location.reload();
+        }
+        let jsonarr = localStorage.getItem('Products_Cart');
+        let main_body = document.getElementById('mainBody');
+        console.log(jsonarr)
+        if (jsonarr == null || jsonarr == "[]") {
+            let noitems = document.createElement("div");
+            noitems.textContent = "No Items ";
+            noitems.setAttribute('id', 'no_items');
+            main_body.appendChild(noitems);
+
+        }
+        else {
+            let arr = JSON.parse(jsonarr);
+            for (let i in arr) {
+                let image = arr[i].Image;
+                let name = arr[i].Name;
+                let price = arr[i].Price;
+                let articletag = document.createElement("article");
+                let imagetag = document.createElement("img");
+                let nametag = document.createElement("div");
+                let pricetag = document.createElement("div");
+                let buttontag = document.createElement("button");
+                imagetag.src = image;
+                nametag.textContent = name;
+                pricetag.textContent = price;
+                buttontag.textContent = `Remove Item`;
+                buttontag.onclick = function () { removeItem(name) };
+                articletag.appendChild(imagetag);
+                articletag.appendChild(nametag);
+                articletag.appendChild(pricetag);
+                articletag.appendChild(buttontag);
+                main_body.appendChild(articletag);
+            }
+            let sum = 0;
+            for (let i in arr) {
+                let cst = arr[i].Price;
+                let c = "";
+                for (let j in cst) {
+                    if (cst[j] == '$') {
+                        break;
+                    }
+                    else {
+                        c += cst[j];
+                    }
+                }
+                sum += parseInt(c);
+            }
+            let total = document.createElement('div');
+            total.setAttribute('id', 'totalPrice');
+            total.textContent = `Total Price is : ${sum}$`;
+            main_body.appendChild(total);
+        }
+
+
+    </script>
+</body>
+
+</html>
