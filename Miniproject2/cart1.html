@@ -99,16 +99,16 @@
             let sum = 0;
             for (let i in arr) {
                 let cst = arr[i].Price;
-                let c = "";
+                let t = "";
                 for (let j in cst) {
                     if (cst[j] == '$') {
                         break;
                     }
                     else {
-                        c += cst[j];
+                        t += cst[j];
                     }
                 }
-                sum += parseInt(c);
+                sum += parseInt(t);
             }
             let total = document.createElement('div');
             total.setAttribute('id', 'totalPrice');
